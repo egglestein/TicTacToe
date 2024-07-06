@@ -1,0 +1,14 @@
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.AssemblyInfoInputs.cache
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.AssemblyInfo.cs
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.csproj.CoreCompileInputs.cache
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\SimpliSafeTakeHomeAssesment.exe
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\SimpliSafeTakeHomeAssesment.deps.json
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\SimpliSafeTakeHomeAssesment.runtimeconfig.json
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\SimpliSafeTakeHomeAssesment.dll
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\SimpliSafeTakeHomeAssesment.pdb
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.dll
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\refint\SimpliSafeTakeHomeAssesment.dll
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.pdb
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.genruntimeconfig.cache
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\ref\SimpliSafeTakeHomeAssesment.dll
