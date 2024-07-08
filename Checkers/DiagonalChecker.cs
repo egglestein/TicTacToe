@@ -8,7 +8,7 @@ namespace SimpliSafeTakeHomeAssesment
 {
     internal class DiagonalChecker : WinConditionChecker
     {
-        public override bool CheckCondition(List<List<Cell>> _data, out CELL_STATE _winner)
+        public override bool CheckCondition(List<List<Cell>> _data, out string _winner)
         {
             if (CheckDiagonal(true, _data, out _winner))
             {
@@ -19,18 +19,18 @@ namespace SimpliSafeTakeHomeAssesment
                 return true;
             }
 
-            _winner = CELL_STATE._;
+            _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             return false;
         }
 
-        public bool CheckDiagonal(bool _goingLeft, List<List<Cell>> _data, out CELL_STATE _winner)
+        public bool CheckDiagonal(bool _goingLeft, List<List<Cell>> _data, out string _winner)
         {
-            _winner = CELL_STATE._;
+            _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             int startVal = _goingLeft ? _data.Count - 1 : 0;
             int directionVal = _goingLeft ? -1 : 1;
 
-            CELL_STATE startState = _data[0][startVal]._State;
-            if (startState == CELL_STATE._)
+            string startState = _data[0][startVal]._State;
+            if (startState == CellConfigAccessor.GetCellConfig()._EmptyValue)
             {
                 return false;
             }
@@ -45,6 +45,43 @@ namespace SimpliSafeTakeHomeAssesment
             }
             _winner = startState;
             return true;
+        }
+
+
+        public override bool FullyEvaluateCondition(List<List<Cell>> _data)
+        {
+            if (FullyEvaluateDiagonal(false, _data))
+            {
+                return true;
+            }
+            else if (FullyEvaluateDiagonal(true, _data))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool FullyEvaluateDiagonal(bool _goingLeft, List<List<Cell>> _data)
+        {
+            int startVal = _goingLeft ? _data.Count - 1 : 0;
+            int directionVal = _goingLeft ? -1 : 1;
+
+            string startState = _data[0][startVal]._State;
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                Cell cell = _data[i][startVal + (i * directionVal)];
+                if (cell._State != startState && cell._State != CellConfigAccessor.GetCellConfig()._EmptyValue)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public DiagonalChecker()
+        {
+            winConditionName = "Diagonal";
         }
 
     }

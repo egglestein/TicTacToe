@@ -6,31 +6,25 @@ using System.Threading.Tasks;
 
 namespace SimpliSafeTakeHomeAssesment
 {
-    public enum CELL_STATE
-    {
-        _ = 0,
-        X,
-        O
-    }
-
     public class Cell
     {
-        CELL_STATE state;
-        public CELL_STATE _State
+        string activeState;
+
+        public string _State
         {
             get
             {
-                return state;
+                return activeState;
             }
             set
             {
-                state = value;
+                activeState = value;
             }
         }
 
         public Cell()
         {
-            state = CELL_STATE._;
+            activeState = "";
         }
     }
 }

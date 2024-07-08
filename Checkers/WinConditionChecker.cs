@@ -8,6 +8,8 @@ namespace SimpliSafeTakeHomeAssesment
 {
     public abstract class WinConditionChecker
     {
-        public abstract bool CheckCondition(List<List<Cell>> data, out CELL_STATE winner);
+        public string winConditionName;
+        public abstract bool CheckCondition(List<List<Cell>> _data, out string _winner);
+        public abstract bool FullyEvaluateCondition(List<List<Cell>> _data);
     }
 }

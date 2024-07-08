@@ -12,12 +12,12 @@ namespace SimpliSafeTakeHomeAssesment
     {
         public const string BOARD_FILENAME = "board_data.txt";
 
-        public static BoardLoadParams LoadBoard()
+        public static BoardLoadParams LoadBoard(CellConfigInterface _cellConfig)
         {
-            return ReadBoardFromFile();
+            return ReadBoardFromFile(_cellConfig);
         }
 
-        static BoardLoadParams ReadBoardFromFile()
+        static BoardLoadParams ReadBoardFromFile(CellConfigInterface _cellConfig)
         {
             BoardLoadParams newBoardLoadParams = new BoardLoadParams();
 
@@ -43,7 +43,7 @@ namespace SimpliSafeTakeHomeAssesment
                         {
                             string fieldInfo = fields[i];
                             int parsedValue = -1;
-                            if (CheckInputValid(fieldInfo, out parsedValue))
+                            if (CheckInputValid(fieldInfo, _cellConfig.GetCellConfigList().Count, out parsedValue))
                             {
                                 newBoardLoadParams.cellInfo[lineCount].Add(parsedValue);
                             }
@@ -65,7 +65,7 @@ namespace SimpliSafeTakeHomeAssesment
 
         }
 
-        static bool CheckInputValid(string input, out int output)
+        static bool CheckInputValid(string input, int maxPlayer, out int output)
         {
             int value = -1;
             try
@@ -74,15 +74,13 @@ namespace SimpliSafeTakeHomeAssesment
             }
             catch (Exception)
             {
-                Console.WriteLine("Error parsing character. Please input 0 for empty, 1 for X, or 2 for O");
+                Console.WriteLine("Error parsing character. Please input 0 for empty, and any positive integer for corresponding player number within the range of players assigned in cell config");
                 throw;
             }
 
-            if (value != 0 &&
-                value != 1 &&
-                value != 2)
+            if (value < 0 || value >= maxPlayer )
             {
-                Console.WriteLine("Error parsing character. Please input 0 for empty, 1 for X, or 2 for O");
+                Console.WriteLine("Error parsing character. Please input 0 for empty, and any positive integer for corresponding player number within the range of players assigned in cell config");
                 output = -1;
                 return false;
             }

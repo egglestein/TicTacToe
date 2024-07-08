@@ -36,8 +36,15 @@ namespace SimpliSafeTakeHomeAssesment
 
         public Board()
         {
+            LoadCellConfig();
             LoadBoardState();
         }
+
+        void LoadCellConfig()
+        {
+            CellConfigAccessor.InitializeCellConfig();
+        }
+
 
         public void InitBoard(int _boardSize)
         {
@@ -57,7 +64,8 @@ namespace SimpliSafeTakeHomeAssesment
 
         public void LoadBoardState()
         {
-            BoardLoadParams boardParams = BoardLoader.LoadBoard();
+            CellConfigInterface cellConfig = CellConfigAccessor.GetCellConfig();
+            BoardLoadParams boardParams = BoardLoader.LoadBoard(cellConfig);
 
             InitBoard(boardParams.cellInfo.Count);
 
@@ -68,7 +76,7 @@ namespace SimpliSafeTakeHomeAssesment
                 List<int> row = boardParams.cellInfo[i];
                 for (int j = 0; j < row.Count; j++)
                 {
-                    cells[i][j]._State = (CELL_STATE)row[j];
+                    cells[i][j]._State = cellConfig[row[j]];
                     Console.Write(cells[i][j]._State.ToString());
                 }
                 Console.WriteLine();

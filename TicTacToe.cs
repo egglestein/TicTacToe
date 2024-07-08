@@ -5,48 +5,37 @@ namespace SimpliSafeTakeHomeAssesment
 {
     internal class TicTacToeSolver
     {
-        static bool anyMovesLeft(List<List<Cell>> _data)
-        {
-            for (int i = 0; i < _data.Count; i++)
-            {
-                List<Cell> row = _data[i];
-                for (int j = 0; j < _data.Count; j++)
-                {
-                    Cell cell = row[j];
-                    if (cell._State == CELL_STATE._)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-
-
         static void Main(string[] args)
         {
             Board board = new Board();
+            GameWinAnalyzer.InitializeWinConditions();
 
             VictoryReport report = GameWinAnalyzer.checkWinner(board._Cells);
 
-            if (report.winner != CELL_STATE._)
+            if (report.winner != CellConfigAccessor.GetCellConfig()._EmptyValue)
             {
-                Console.WriteLine(string.Format("The winner of the game was {0}, and they won by {1}", report.winner.ToString(), report.type.ToString()));
+                Console.WriteLine(string.Format("The winner of the game was {0}, and they won by {1}", report.winner.ToString(), report.victoryType.ToString()));
                 Console.ReadLine();
                 return;
             }
 
             else
             {
-                if (!anyMovesLeft(board._Cells))
+                if (!RemainingMoveAnalyzer.anyMovesLeft(board._Cells))
                 {
                     Console.WriteLine("There were no available moves left, so the game is over with no winner");
                 }
                 else
                 {
                     Console.WriteLine("There were some available spaces. Checking if win is possible or game is over");
+                    if (GameWinAnalyzer.isGameOver(board._Cells))
+                    {
+                        Console.WriteLine("There are still some potential win conditions remaining, game is not over");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No win conditions are possible. Game is over");
+                    }
                 }
 
             }

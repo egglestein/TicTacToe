@@ -3,36 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SimpliSafeTakeHomeAssesment
 {
     internal class VerticalChecker : WinConditionChecker
     {
-        public override bool CheckCondition(List<List<Cell>> data, out CELL_STATE _winner)
+        public override bool CheckCondition(List<List<Cell>> _data, out string _winner)
         {
-            for (int i = 0; i < data.Count; i++)
+            for (int i = 0; i < _data.Count; i++)
             {
-                if (CheckColumn(i, data, out _winner))
+                if (CheckColumn(i, _data, out _winner))
                 {
                     return true;
                 }   
             }
-            _winner = CELL_STATE._;
+            _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             return false;
         }
 
-        bool CheckColumn(int _column, List<List<Cell>> data, out CELL_STATE _winner)
+        public override bool FullyEvaluateCondition(List<List<Cell>> _data)
         {
-            _winner = CELL_STATE._;
-            CELL_STATE startVal = data[0][_column]._State;
-            if (startVal == CELL_STATE._)
+            for (int i = 0; i < _data.Count; i++)
+            {
+                if (FullyEvaluateColumn(i, _data))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool FullyEvaluateColumn(int _column, List<List<Cell>> _data)
+        {
+            string startVal = _data[0][_column]._State;
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                Cell cell = _data[i][_column];
+
+                if (cell._State != startVal && cell._State != CellConfigAccessor.GetCellConfig()._EmptyValue)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        bool CheckColumn(int _column, List<List<Cell>> _data, out string _winner)
+        {
+            _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
+            string startVal = _data[0][_column]._State;
+            if (startVal == CellConfigAccessor.GetCellConfig()._EmptyValue)
             {
                 return false;
             }
 
-            for (int i = 0; i < data.Count; i++)
+            for (int i = 0; i < _data.Count; i++)
             {
-                Cell cell = data[i][_column];
+                Cell cell = _data[i][_column];
 
                 if (cell._State != startVal)
                 {
@@ -42,6 +71,12 @@ namespace SimpliSafeTakeHomeAssesment
 
             _winner = startVal;
             return true;
+        }
+
+
+        public VerticalChecker()
+        {
+            winConditionName = "Vertical";
         }
     }
 }

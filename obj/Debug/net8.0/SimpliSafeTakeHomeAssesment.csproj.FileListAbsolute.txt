@@ -12,3 +12,7 @@ C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\refint\Simpli
 C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.pdb
 C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.genruntimeconfig.cache
 C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\ref\SimpliSafeTakeHomeAssesment.dll
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.sourcelink.json
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSafeTakeHomeAssesment.csproj.AssemblyReference.cache
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\kevpe\source\repos\TicTacToe\ConsoleApp1\obj\Debug\net8.0\SimpliSa.203B53E8.Up2Date

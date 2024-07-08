@@ -7,25 +7,15 @@ using System.Threading.Tasks;
 
 namespace SimpliSafeTakeHomeAssesment
 {
-    public enum VictoryTypes
-    {
-        CORNERS,
-        DIAGONALS,
-        HORIZONTALS,
-        VERTICALS,
-        SQUARES,
-        NONE
-    }
-
     public struct VictoryReport
     {
-        public VictoryTypes type;
-        public CELL_STATE winner;
+        public string winner;
+        public string victoryType;
 
         public VictoryReport()
         {
-            type = VictoryTypes.NONE;
-            winner = CELL_STATE._;
+            victoryType = "";
+            winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
         }
     }
 
@@ -52,18 +42,30 @@ namespace SimpliSafeTakeHomeAssesment
 
             for (int i = 0; i < winConditionChecks.Count; i++)
             {
-                CELL_STATE winner = CELL_STATE._;
+                string winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
                 winConditionChecks[i].CheckCondition(_data, out winner);
-                if (winner != CELL_STATE._)
+                if (winner != CellConfigAccessor.GetCellConfig()._EmptyValue)
                 {
                     victoryReport.winner = winner;
-                    victoryReport.type = (VictoryTypes)i;
+                    victoryReport.victoryType = winConditionChecks[i].winConditionName;
                     return victoryReport;
                 }
             }
 
             return victoryReport;
            
+        }
+
+        public static bool isGameOver(List<List<Cell>> _data)
+        {
+            for (int i = 0; i < winConditionChecks.Count; i++)
+            {
+                if (winConditionChecks[i].FullyEvaluateCondition(_data))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
