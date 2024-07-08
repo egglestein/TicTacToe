@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,6 +35,10 @@ namespace SimpliSafeTakeHomeAssesment.Checkers
         {
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             Cell UL = _data[_ulCol][_ulRow];
+            if (UL._State == CellConfigAccessor.GetCellConfig()._EmptyValue)
+            {
+                return false;
+            }
 
             Cell UR = _data[_ulCol][_ulRow + 1];
             if (UR._State != UL._State)
