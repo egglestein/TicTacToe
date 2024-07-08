@@ -78,6 +78,7 @@ namespace SimpliSafeTakeHomeAssesment
                 {
                     cells[i][j]._State = cellConfig[row[j]];
                     Console.Write(cells[i][j]._State.ToString());
+                    Console.Write(' ');
                 }
                 Console.WriteLine();
             }
