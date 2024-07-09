@@ -3,6 +3,8 @@ This solution takes an input of one tictactoe grid and will tell you:
 2. If there are any moves left
 3. If any moves are left, can anybody still win the game
 
+To run the program, edit the files as described below, and then simply run the exe in the bin folder.
+
 There are two files this program reads from, both located in the bin folder with the exe.
 board_data.txt provides the TicTacToe grid, and cell_config.json stores the config info for the cells.
 
