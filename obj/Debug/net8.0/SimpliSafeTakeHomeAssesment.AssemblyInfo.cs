@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpliSafeTakeHomeAssesment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d5d758753144505139450aaac07533d6c13e916")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc2fe834addafa1e3032f75644acca532d7bc5f0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpliSafeTakeHomeAssesment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpliSafeTakeHomeAssesment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
