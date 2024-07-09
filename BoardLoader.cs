@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpliSafeTakeHomeAssesment
 {
+    //We load board from a file so it is easy to swap out board states
     public static class BoardLoader
     {
         public const string BOARD_FILENAME = "board_data.txt";

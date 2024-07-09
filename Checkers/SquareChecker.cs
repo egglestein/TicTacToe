@@ -9,6 +9,7 @@ namespace SimpliSafeTakeHomeAssesment.Checkers
 {
     public class SquareChecker : WinConditionChecker
     {
+        /*Start in top left and iterate through every square. Return true as soon as one is found*/
         public override bool CheckCondition(List<List<Cell>> _data, out string _winner)
         {
             if (_data.Count < 2)
@@ -30,7 +31,7 @@ namespace SimpliSafeTakeHomeAssesment.Checkers
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             return false;
         }
-
+        /*pass in coordinates of square you want to check, and then check square to the right, below, and below to the right. if all the same, true*/
         public bool CheckSquare(int _ulRow, int _ulCol, List<List<Cell>> _data, out string _winner)
         {
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
@@ -56,7 +57,7 @@ namespace SimpliSafeTakeHomeAssesment.Checkers
             return true;
 
         }
-
+        /*Start in top left iterate through each square to see if they are still possible. Return true as soon as one can be finished*/
         public override bool FullyEvaluateCondition(List<List<Cell>> _data)
         {
             if (_data.Count < 2)
@@ -75,7 +76,7 @@ namespace SimpliSafeTakeHomeAssesment.Checkers
             }
             return false;
         }
-
+        /*pass in coordinates of square you want to check, and then check square to the right, below, and below to the right. if no more than one player occupies this square, its still possible to take*/
         bool FullyEvaluateSquare(int _ulRow, int _ulCol, List<List<Cell>> _data)
         {
             Cell UL = _data[_ulCol][_ulRow];

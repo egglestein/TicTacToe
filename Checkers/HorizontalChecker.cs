@@ -23,6 +23,7 @@ namespace SimpliSafeTakeHomeAssesment
             return false;
         }
 
+        /*Iterate through row and return false if at any point more than one player or any blank spaces are present*/
         bool CheckRow(int _row, List<List<Cell>> _data, out string _winner)
         {
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
@@ -46,6 +47,7 @@ namespace SimpliSafeTakeHomeAssesment
             return true;
         }
 
+        /*iterate through rows and return as soon as one is found true*/
         public override bool FullyEvaluateCondition(List<List<Cell>> _data)
         {
             for (int i = 0; i < _data.Count; i++)
@@ -58,6 +60,7 @@ namespace SimpliSafeTakeHomeAssesment
             return false;
         }
 
+        /*Iterate row and return false if more than one player is present*/
         bool FullyEvaluateRow(int _row, List<List<Cell>> _data)
         {
             string startVal = _data[_row][0]._State;

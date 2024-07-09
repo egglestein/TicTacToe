@@ -8,6 +8,7 @@ namespace SimpliSafeTakeHomeAssesment
 {
     public static class RemainingMoveAnalyzer
     {
+        /*Simply iterate through and stop upon reaching an empty space, since that means at least one move can still be made*/
         public static bool anyMovesLeft(List<List<Cell>> _data)
         {
             for (int i = 0; i < _data.Count; i++)

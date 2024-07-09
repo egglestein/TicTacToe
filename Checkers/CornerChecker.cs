@@ -9,6 +9,7 @@ namespace SimpliSafeTakeHomeAssesment
 {
     public class CornerChecker : WinConditionChecker
     {
+        /*Simply check all 4 corners and see if they match, but return as soon as an empty or a non match hits*/
         public override bool CheckCondition(List<List<Cell>> _data, out string _winner)
         {
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
@@ -31,6 +32,7 @@ namespace SimpliSafeTakeHomeAssesment
             return true;
         }
 
+        /*Check all 4 corners and return false if more than one player is present*/
         public override bool FullyEvaluateCondition(List<List<Cell>> _data)
         {
             string ULCheck = _data[0][0]._State;

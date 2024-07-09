@@ -8,6 +8,7 @@ namespace SimpliSafeTakeHomeAssesment
 {
     internal class DiagonalChecker : WinConditionChecker
     {
+        /*Check diagonals one by one and return if either is true*/
         public override bool CheckCondition(List<List<Cell>> _data, out string _winner)
         {
             if (CheckDiagonal(true, _data, out _winner))
@@ -22,7 +23,7 @@ namespace SimpliSafeTakeHomeAssesment
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
             return false;
         }
-
+        /*Iterate through diagonal going from top corner to opposite bottom corner and return false if more than one player or an empty cell is present in the path*/
         public bool CheckDiagonal(bool _goingLeft, List<List<Cell>> _data, out string _winner)
         {
             _winner = CellConfigAccessor.GetCellConfig()._EmptyValue;
@@ -47,7 +48,7 @@ namespace SimpliSafeTakeHomeAssesment
             return true;
         }
 
-
+        /*Check diagonals one by one and return if either is true*/
         public override bool FullyEvaluateCondition(List<List<Cell>> _data)
         {
             if (FullyEvaluateDiagonal(false, _data))
@@ -61,6 +62,7 @@ namespace SimpliSafeTakeHomeAssesment
             return false;
         }
 
+        /*Iterate through diagonal going from top corner to opposite bottom corner and return false if more than one player is present in the path*/
         public bool FullyEvaluateDiagonal(bool _goingLeft, List<List<Cell>> _data)
         {
             int startVal = _goingLeft ? _data.Count - 1 : 0;

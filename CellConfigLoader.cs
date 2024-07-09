@@ -49,6 +49,7 @@ namespace SimpliSafeTakeHomeAssesment
         }
     }
 
+    //we load cell config from a file so that it is easy to change how many players can be on the grid and what kind of characters each player is represented by.
     public static class CellConfigLoader
     {
         const string FILE_NAME = "cell_config.json";
@@ -78,29 +79,6 @@ namespace SimpliSafeTakeHomeAssesment
                 {
                     throw new Exception("Could not read config file");
                 }
-
-
-                //using (JsonTextReader reader = new JsonTextReader())
-                //{
-                //    try
-                //    {
-                //        CellConfig config = JsonConvert.DeserializeObject<CellConfig>(reader.ReadAsString());
-                //        if (config != null)
-                //        {
-                //            config.CombineConfig();
-                //            return config;
-                //        }
-                //        else
-                //        {
-                //            throw new Exception("Could not read config file");
-                //        }
-                        
-                //    }
-                //    catch (Exception)
-                //    {
-                //        throw new Exception("Could not read config file");
-                //    }
-                //}
             }
         }
     }

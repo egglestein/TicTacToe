@@ -38,6 +38,7 @@ namespace SimpliSafeTakeHomeAssesment
         {
             string startVal = _data[0][_column]._State;
 
+            //iterate down each column, and if at any point more than one player is found, it is false
             for (int i = 0; i < _data.Count; i++)
             {
                 Cell cell = _data[i][_column];
@@ -59,6 +60,7 @@ namespace SimpliSafeTakeHomeAssesment
                 return false;
             }
 
+            //iterate down each column, and if at any point an item does not match the top point in the column, it is false
             for (int i = 0; i < _data.Count; i++)
             {
                 Cell cell = _data[i][_column];

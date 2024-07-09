@@ -23,7 +23,10 @@ namespace SimpliSafeTakeHomeAssesment
     public static class GameWinAnalyzer
     {
         static List<WinConditionChecker> winConditionChecks = new List<WinConditionChecker>();
+        //organize check conditions in order of least to most demanding. this way you only need to do the expensive operations if necessary.
 
+        //since conditions are set up as extensions of a base class, it is extremely easy to add and remove new conditions without changing
+        //any code aside from having to write them out and then add them to the active conditions to check for
         public static void InitializeWinConditions()
         {
             winConditionChecks = new List<WinConditionChecker>
